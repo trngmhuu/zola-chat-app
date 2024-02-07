@@ -1,0 +1,32 @@
+{
+  "name": "zola-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trngmhuu/zola-chat-app.git"
+  },
+  "author": "trngmhuu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trngmhuu/zola-chat-app/issues"
+  },
+  "homepage": "https://github.com/trngmhuu/zola-chat-app#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "socket.io": "^4.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
