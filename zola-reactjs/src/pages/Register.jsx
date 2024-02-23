@@ -64,6 +64,7 @@ function Register() {
 
     const [values, setValues] = useState({
         username: "",
+        fullName: "",
         email: "",
         phoneNumber:"",
         password: "",
@@ -87,9 +88,10 @@ function Register() {
         event.preventDefault();
         if(handleValidation()) {
             console.log("In validation", registerRoute);
-            const {password, email, phoneNumber, username} = values;
+            const {password, email, phoneNumber, username, fullName} = values;
             const {data} = await axios.post(registerRoute, {
-                username, 
+                username,
+                fullName,
                 email, 
                 phoneNumber,
                 password
@@ -105,7 +107,7 @@ function Register() {
     };
 
     const handleValidation = ()=> {
-        const {password, confirmPassword, email, phoneNumber,  username} = values;
+        const {password, confirmPassword, email, phoneNumber,  username, fullName} = values;
 
         if (username === "") {
             toast.error("Tên người dùng không được bỏ trống", toastOptions);
@@ -121,6 +123,12 @@ function Register() {
             toast.error("Số điện thoại không được bỏ trống", toastOptions);
             return false;
         }
+
+        else if (fullName === "") {
+            toast.error("Họ tên không được bỏ trống", toastOptions);
+            return false;
+        }
+
         else if (verifyOtp) {//chổ này cần sửa
 
             if (password !== confirmPassword) 
@@ -167,6 +175,13 @@ function Register() {
                         style={{ height: '25px'}}
                     />
                     <input 
+                        type="text" 
+                        placeholder="Họ tên" 
+                        name="fullName" 
+                        onChange={(e) => handleChange(e)}
+                        style={{ height: '25px'}}
+                    />
+                    <input 
                         type="email" 
                         placeholder="Email" 
                         name="email" 
@@ -186,7 +201,7 @@ function Register() {
                     <PhoneInput
                     name="phoneNumber" 
                     placeholder="Số điện thoại"
-                    country={'us'}
+                    country={'vn'}
                     value={phone}
                     onChange={(value, country, event, formattedValue) => {
                         handlePhoneChange(value);

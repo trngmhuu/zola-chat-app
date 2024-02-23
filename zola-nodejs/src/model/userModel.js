@@ -8,6 +8,10 @@ const userSchema = new mongoose.Schema({
         max: 20,
         unique: true
     },
+    fullName: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: true,
